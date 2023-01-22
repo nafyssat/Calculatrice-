@@ -54,6 +54,8 @@ def calculadd(n):
              affiche['text']=str(sous(n))
         if(n[i]=="x" and i!=len(n)-1):
              affiche['text']=str(multi(n))
+        if(n[i]=="/" and i!=len(n)-1):
+             affiche['text']=str(division(n))
     var=""
 
 def somme(n):
@@ -72,6 +74,12 @@ def multi(n):
         if(n[i]=="x"):
             return int(n[0:i])*multi(n[i+1:len(n)])
     return int(n)
+def division(n):
+    for i in range(0,len(n)):
+        if(n[i]=="/"):
+            return int(n[0:i])/int(n[i+1:len(n)])
+    
+    
     
 # autre frame
 def calculateentree(n):
@@ -86,8 +94,6 @@ def calculateentree(n):
     
 def calculate():
     frame.pack_forget()
-   
-   
     k=1
     for i in range(0,3):
         for j in range(0,3):
@@ -113,11 +119,6 @@ def calculate():
     button4=Button(operateur,text="/", font=("Courrier",20),bg="white",fg='#A55050',command=partial(
     calculateentree, "/"))
     button4.grid(row=2,column=1,padx=10,pady=10)
-   
-   
-    
-    
-    
     frame2.pack(expand=YES)
    
     
